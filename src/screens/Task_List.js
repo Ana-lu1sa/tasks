@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, ImageBackground} from "react-native"
 import moment from "moment"
 import 'moment/locale/pt-br'
 import today_Image from '../../assets/imgs/today.jpg'
+import Task from "../components/Task"
 
 export default class Task_List extends component{
     // extends component mostra que a classe Task_List está herdando do component
@@ -18,6 +19,9 @@ export default class Task_List extends component{
             </ImageBackground>
             <View style={styles.TaskList}>
                 <Text>Lista de Tarefas</Text>
+                <Task/>
+                <Task/>
+                <Task/>
             </View>
             </View>
         )

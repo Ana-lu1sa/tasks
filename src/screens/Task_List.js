@@ -14,13 +14,21 @@ export default class Task_List extends component{
             <ImageBackground source={today_Image} style={styles.background}>
             <view style={styles.titleBar}>
                 <Text style={styles.title}>Hoje</Text>
-                <Text style={styles.subTitle}>14/06/2024</Text>
+                <Text style={styles.subTitle}>{today}</Text>
             </view>
             </ImageBackground>
             <View style={styles.TaskList}>
                 <Text>Lista de Tarefas</Text>
-                <Task/>
-                <Task/>
+                <Task
+                    description = "Estudar para prova do Hereman"
+                    estimate_at={new Date()}
+                    done_at={new Date()}
+                />
+                <Task
+                    description= "Fazer a prova do Hereman"
+                    estimate_at={new Date()}
+                    done_at={null}
+                />
                 <Task/>
             </View>
             </View>

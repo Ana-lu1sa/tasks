@@ -55,5 +55,11 @@ export default props => {
         backgroundColor: '#4d7031',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    pending:{
+        height: 25,
+        width: 25,
+        borderRadius: 13,
+        borderWidth: 1,
     }
  })

@@ -26,6 +26,7 @@ export default props => {
 
  const styles = StyleSheet.create({
     container:{
+        flexDirection: 'row',
         BorderColor: '#AAA',
         BorderBottomWidth: 1,
         alignItems: 'center',
@@ -46,7 +47,7 @@ export default props => {
         alignItems: 'center',
         justifyContent: 'center'
     },
-    done:{
+    done:{ 
         height: 25,
         width: 25,
         borderRadius: 13,

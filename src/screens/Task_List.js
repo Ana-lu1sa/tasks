@@ -7,6 +7,7 @@ import moment from "moment"
 import hoje_imagem from "../../assets/imgs/today.jpg"
 import common_Styles from "../styles/common_Styles"
 import Task from "../components/Task"
+import AddTask from "./Add_Taks"
 
 import "moment/locale/pt-br"
 

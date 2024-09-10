@@ -5,6 +5,7 @@ import moment from "moment"
 import "moment/locale/pt-br"
 
 import common_Styles from "../styles/common_Styles"
+import AddTask from "../screens/Add_Taks"
 
 export default props => {
 
@@ -15,6 +16,7 @@ export default props => {
 
     return (
         <View style={styles.principal}>
+        <AddTask/>
             <TouchableWithoutFeedback
             onPress={() => props.alternar_tarefa(props.id) }>
                 <View style={styles.check_principal}>

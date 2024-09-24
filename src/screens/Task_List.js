@@ -14,6 +14,7 @@ import "moment/locale/pt-br"
 export default class Task_List extends Component {
 
     state = {
+        mostrat_tela_add: false,
         mostra_tarefas_concluidas: true,
         tarefas_visiveis: [],
         tarefas: [{
@@ -67,10 +68,20 @@ export default class Task_List extends Component {
         this.setState({ tarefas }, this.filtro_tarefas)
     }
 
+   alterna_tela = () =>{
+    this.setState({
+        mostrat_tela_add: !this.state.mostrat_tela_add
+    })
+   }
+
     render() {
         const data_hoje = moment().locale('pt-br').format('ddd, D [de] MMMM')
         return (
             <View style={styles.principal}>
+            <add_tarefa
+                visivel = {this.state.mostrat_tela_add}
+                cancelar = {this.alterna_tela}
+                />
                 <ImageBackground source={hoje_imagem} style={styles.fundo}>
                     <View style={styles.barra_icone}>
                         <TouchableOpacity onPress={this.alternar_filtro}>
@@ -86,25 +97,11 @@ export default class Task_List extends Component {
                     <FlatList data={this.state.tarefas_visiveis}
                         keyExtractor={item => `${item.id}`}
                         renderItem={({ item }) => <Task{...item} alternar_tarefa={this.alternar_tarefa} />} />
-                    {/* <Task descricao={"Comprar jogo GTA 6"} data_estimada={new Date()} data_conclusao={new Date()} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} />
-                    <Task descricao={"Jogar GTA 6"} data_estimada={new Date()} data_conclusao={null} /> */}
                 </View>
+                <TouchableOpacity style={styles.botao_add}>
+                onPress={this.alternar_tela}
+                <Icon name='plus' size={20} color='#FFF'></Icon>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -142,5 +139,16 @@ const styles = StyleSheet.create({
         marginTop: 50,
         justifyContent: 'flex-end'
     },
+    botao_add:{
+        position: 'absolute',
+        right: 30,
+        bottom: 30,
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        backgroundColor: '#B13B44',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 
 })
